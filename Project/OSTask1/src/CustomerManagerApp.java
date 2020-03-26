@@ -1,5 +1,5 @@
 import java.util.List;
-
+import java.util.Scanner;
 public class CustomerManagerApp {
 
     // declare class variables
@@ -16,21 +16,27 @@ public class CustomerManagerApp {
         displayMenu();
 
         // perform 1 or more actions
-        String action = "";
-        while (!action.equalsIgnoreCase("exit")) {
+        int action = 0;
+        
+       
+
+      
+        while (action !=5) {
             // get the input from the user
-            action = Console.getString("Enter a command: ");
+            Scanner scan = new Scanner(System.in);
+            System.out.print("Enter a command: ");
+            action = scan.nextInt();  
             System.out.println();
 
-            if (action.equalsIgnoreCase("list")) {
+            if (action==1) {
                 displayAllCustomers();
-            } else if (action.equalsIgnoreCase("add")) {
+            } else if (action==2) {
                 addCustomer();
-            } else if (action.equalsIgnoreCase("del") || action.equalsIgnoreCase("delete")) {
+            } else if (action==3) {
                 deleteCustomer();
-            } else if (action.equalsIgnoreCase("help") || action.equalsIgnoreCase("menu")) {
+            } else if (action==4) {
                 displayMenu();
-            } else if (action.equalsIgnoreCase("exit")) {
+            } else if (action==5) {
                 System.out.println("Bye.\n");
             } else {
                 System.out.println("Error! Not a valid command.\n");
@@ -40,11 +46,11 @@ public class CustomerManagerApp {
 
     public static void displayMenu() {
         System.out.println("COMMAND MENU");
-        System.out.println("list    - List all customers");
-        System.out.println("add     - Add a customer");
-        System.out.println("del     - Delete a customer");
-        System.out.println("help    - Show this menu");
-        System.out.println("exit    - Exit this application\n");
+        System.out.println("1    - List all customers");
+        System.out.println("2    - Add a customer");
+        System.out.println("3     - Delete a customer");
+        System.out.println("4    - Show this menu");
+        System.out.println("5    - Exit this application\n");
     }
 
     public static void displayAllCustomers() {
